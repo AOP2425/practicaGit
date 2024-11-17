@@ -36,7 +36,7 @@ namespace ejercicioTelegrama
         {
             string textoTelegrama =  textBox2.Text.Trim();
 
-            char tipoTelegrama = checkBox1.Checked ? 'u' : 'o';
+            char tipoTelegrama = radioButton1.Checked ? 'u' : 'o';
             int numPalabras = 0;
             double coste;
 
@@ -46,9 +46,13 @@ namespace ejercicioTelegrama
             numPalabras = palabras.Length;
 
             // telegrama urgente? 
-            if (checkBox1.Checked)
+            if (radioButton1.Checked)
             {
                 tipoTelegrama = 'u';
+            }
+            if (radioButton2.Checked)
+            {
+                tipoTelegrama = 'o';
             }
             //Obtengo el número de palabras que forma el telegrama  
             numPalabras = textoTelegrama.Length;
@@ -85,6 +89,16 @@ namespace ejercicioTelegrama
                 }
             }
             textBox2.Text = coste.ToString() + " euros";
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
