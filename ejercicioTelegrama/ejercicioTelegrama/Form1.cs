@@ -34,15 +34,17 @@ namespace ejercicioTelegrama
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string textoTelegrama;
+            string textoTelegrama =  textBox2.Text.Trim();
 
-
-        char tipoTelegrama = ' ';
+            char tipoTelegrama = checkBox1.Checked ? 'u' : 'o';
             int numPalabras = 0;
             double coste;
 
             //Leo el telegrama  
             textoTelegrama = textBox1.Text;
+            string[] palabras = textoTelegrama.Split(new[] { ' ' });
+            numPalabras = palabras.Length;
+
             // telegrama urgente? 
             if (checkBox1.Checked)
             {
@@ -60,7 +62,7 @@ namespace ejercicioTelegrama
                 }
                 else
                 {
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + 0.5 * (numPalabras - 10);
                 }
             }
             else
